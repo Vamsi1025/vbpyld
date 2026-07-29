@@ -1,0 +1,63 @@
+{% extends "dialogue/base.html" %}
+
+{% load static %}
+
+{% block title %}Registration Successful{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'dialogue/css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="registration-page">
+
+<div class="registration-card" style="text-align:center;">
+
+<h1 style="color:#16a34a;">
+🎉 Registration Successful
+</h1>
+
+<p style="margin-top:20px;font-size:18px;">
+
+Thank you for registering for
+
+<strong>VBYPLD 2026</strong>.
+
+</p>
+
+<p>
+
+Your payment is currently
+
+<strong>under verification.</strong>
+
+</p>
+
+<br>
+
+<h3>
+
+Registration ID
+
+</h3>
+
+<h2>
+
+#{{ registration_id }}
+
+</h2>
+<p>Once verified, our team will contact you via email or phone.</p>
+<br>
+
+<a href="{% url 'dialogue:home' %}" class="registration-btn">
+
+Back to Home
+
+</a>
+
+</div>
+
+</section>
+
+{% endblock %}

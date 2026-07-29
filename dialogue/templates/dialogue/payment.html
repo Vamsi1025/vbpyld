@@ -1,0 +1,130 @@
+{% extends "dialogue/base.html" %}
+{% load static %}
+
+{% block title %}Payment | VBYPLD{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'dialogue/css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="registration-page">
+
+    <div class="registration-card">
+
+        <div class="registration-header">
+
+            <span class="registration-badge">
+                Step 2 of 2
+            </span>
+
+            <h1>Complete Your Registration</h1>
+
+            <p>
+                Pay the registration fee and submit your UTR number to complete your registration.
+            </p>
+
+        </div>
+
+        <div class="payment-card">
+
+            <h2>Registration Fee</h2>
+
+            <div class="amount">
+                ₹{{ amount }}
+            </div>
+
+            <div class="qr-box">
+
+                <img src="{% static 'dialogue/images/b_logo.jpeg' %}"
+                     alt="QR Code">
+
+            </div>
+
+            <div class="upi-box">
+
+            <strong>UPI ID</strong>
+
+            <div class="upi-copy">
+
+                <input
+                    type="text"
+                    id="upiId"
+                    value="{{ upi_id }}"
+                    readonly>
+
+                <button
+                    type="button"
+                    id="copyBtn"
+                    onclick="copyUPI()">
+
+                    Copy
+
+                </button>
+
+            </div>
+
+        </div>
+
+        </div>
+
+        <div class="instructions">
+
+            <h3>Payment Instructions</h3>
+
+            <ol>
+                <li>Open any UPI application.</li>
+                <li>Scan the QR Code above.</li>
+                <li>Pay ₹{{ amount }}.</li>
+                <li>Copy the UTR / Transaction ID.</li>
+                <li>Paste it below and submit.</li>
+            </ol>
+
+        </div>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+
+                <label>UTR Number *</label>
+
+                <input
+                    type="text"
+                    name="utr_number"
+                    required
+                    placeholder="Enter UTR Number">
+
+            </div>
+
+            <button class="registration-btn">
+
+                Submit Registration
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<script>
+function copyUPI() {
+    const input = document.getElementById("upiId");
+    const button = document.getElementById("copyBtn");
+
+    navigator.clipboard.writeText(input.value).then(() => {
+        button.textContent = "Copied ✓";
+
+        setTimeout(() => {
+            button.textContent = "Copy";
+        }, 2000);
+    });
+}
+</script>
+
+{% endblock %}
+

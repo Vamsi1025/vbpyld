@@ -1,0 +1,53 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Register for Viksit Bharat Young Political Leaders' Dialogue, a two-day leadership conclave at SPA Vijayawada.">
+    <title>{% block title %}VBYPLD Registration{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'dialogue/css/styles.css' %}?v=13">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-header>
+        <nav class="nav-shell" aria-label="Primary navigation">
+            <a class="brand" href="{% url 'dialogue:home' %}" aria-label="VBYPLD home">
+                <span class="brand-mark">VB</span>
+                <span>
+                    <strong>VBYPLD</strong>
+                    <small>Andhra Pradesh 2026</small>
+                </span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Menu</span>
+            </button>
+            <div class="nav-links" id="site-menu" data-nav-menu>
+                <a href="#about">About</a>
+                <a href="#programme">Programme</a>
+                <a href="#attend">Attend</a>
+                <a href="#venue">Venue</a>
+                <a class="nav-cta" href="{% url 'dialogue:register' %}">Register</a>
+            </div>
+        </nav>
+    </header>
+    <main id="main">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="site-footer">
+        <div class="section-shell footer-grid">
+            <div>
+                <strong>Viksit Bharat Young Political Leaders' Dialogue</strong>
+                <p>Young Minds. Strong Leaders. Empowered Andhra.</p>
+            </div>
+            <a class="footer-register" href="{% url 'dialogue:register' %}">Register Now</a>
+        </div>
+    </footer>
+    <a class="mobile-fixed-register" href="{% url 'dialogue:register' %}">Register Now</a>
+    <script src="{% static 'dialogue/js/main.js' %}"></script>
+</body>
+</html>

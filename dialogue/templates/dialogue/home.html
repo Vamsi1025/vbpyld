@@ -1,0 +1,182 @@
+{% extends "dialogue/base.html" %}
+{% load static %}
+
+{% block title %}Register | Viksit Bharat Young Political Leaders' Dialogue{% endblock %}
+
+{% block content %}
+<section class="hero" data-event-date="{{ event_date_iso }}">
+    <div class="hero-overlay"></div>
+    <div class="hero-content section-shell">
+        <div class="hero-logo" aria-hidden="true"></div>
+        <div class="hero-copy">
+            <p class="lead">From Struggle to Statesmanship - shaping India's next generation of leadership.</p>
+            <p class="hero-text">Together, let's build a prosperous Andhra Pradesh and a Viksit Bharat @2047 through grounded leadership, public service, and civic engagement.</p>
+            <div class="hero-actions">
+                <a class="button primary" href="{% url 'dialogue:register' %}" target="_blank" rel="noopener">Register Now</a>
+                <a class="button secondary" href="#programme">View Programme</a>
+            </div>
+        </div>
+        <aside class="event-panel" aria-label="Event details">
+            <div class="panel-row">
+                <span>Date</span>
+                <strong>22nd - 23rd August 2026</strong>
+            </div>
+            <div class="panel-row">
+                <span>Venue</span>
+                <strong>School of Planning and Architecture, Vijayawada</strong>
+            </div>
+            <div class="countdown" aria-label="Countdown to event">
+                <div>
+                    <strong data-days>--</strong>
+                    <span>Days</span>
+                </div>
+                <div>
+                    <strong data-hours>--</strong>
+                    <span>Hours</span>
+                </div>
+                <div>
+                    <strong data-minutes>--</strong>
+                    <span>Minutes</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<section class="intro-band" id="about">
+    <div class="section-shell split-section">
+        <div>
+            <p class="section-kicker">About The Dialogue</p>
+            <h2>A two-day conclave for young leaders, professionals, and changemakers.</h2>
+        </div>
+        <p>The Viksit Bharat Young Political Leaders' Dialogue brings together eminent political leaders, policymakers, entrepreneurs, and change makers to discuss India's democratic journey, governance reforms, leadership values, and the roadmap towards Viksit Bharat @2047, with a special focus on Andhra Pradesh's contribution.</p>
+    </div>
+</section>
+
+<section class="section-shell" aria-labelledby="objectives-title">
+    <div class="section-heading">
+        <p class="section-kicker">Objectives</p>
+        <h2 id="objectives-title">Built for practical leadership and public purpose.</h2>
+    </div>
+    <div class="number-grid">
+        {% for objective in objectives %}
+            <article class="number-item">
+                <span>{{ forloop.counter|stringformat:"02d" }}</span>
+                <p>{{ objective }}</p>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="programme-band" id="programme">
+    <div class="section-shell">
+        <div class="section-heading">
+            <p class="section-kicker">Two-Day Programme Themes</p>
+            <h2>From understanding the nation to leading the future.</h2>
+        </div>
+        <div class="day-grid">
+            <article class="day-column">
+                <div class="day-heading saffron">
+                    <span>Day 1</span>
+                    <h3>Understanding The Nation</h3>
+                </div>
+                <div class="session-list">
+                    {% for session in day_one_sessions %}
+                        <section class="session-card">
+                            <p>{{ session.number }}</p>
+                            <h4>{{ session.title }}</h4>
+                            <ul>
+                                {% for topic in session.topics %}
+                                    <li>{{ topic }}</li>
+                                {% endfor %}
+                            </ul>
+                        </section>
+                    {% endfor %}
+                    <section class="session-card highlight">
+                        <p>Evening</p>
+                        <h4>Cultural Evening</h4>
+                        <ul>
+                            <li>Patriotic Cultural Performances</li>
+                            <li>Networking Dinner</li>
+                        </ul>
+                    </section>
+                </div>
+            </article>
+            <article class="day-column">
+                <div class="day-heading green">
+                    <span>Day 2</span>
+                    <h3>Leading The Future</h3>
+                </div>
+                <div class="session-list">
+                    {% for session in day_two_sessions %}
+                        <section class="session-card">
+                            <p>{{ session.number }}</p>
+                            <h4>{{ session.title }}</h4>
+                            <ul>
+                                {% for topic in session.topics %}
+                                    <li>{{ topic }}</li>
+                                {% endfor %}
+                            </ul>
+                        </section>
+                    {% endfor %}
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section-shell attend-section" id="attend">
+    <div class="section-heading">
+        <p class="section-kicker">Who Should Attend?</p>
+        <h2>Designed for people ready to participate in politics, policy, and civic life.</h2>
+    </div>
+    <div class="attendee-grid">
+        {% for attendee in attendees %}
+            <div class="attendee-pill">{{ attendee }}</div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="venue-band" id="venue">
+    <div class="section-shell venue-grid">
+        <div>
+            <p class="section-kicker">Venue</p>
+            <h2>School of Planning and Architecture, Vijayawada, Andhra Pradesh</h2>
+            <p>Participants will gather in Vijayawada for keynote addresses, interactive discussions, panel sessions, open dialogue, and networking.</p>
+        </div>
+        <div class="venue-details">
+            <div>
+                <span>Dates</span>
+                <strong>22nd - 23rd August 2026</strong>
+            </div>
+            <div>
+                <span>Vision</span>
+                <strong>Young Minds | Strong Leaders | Empowered Andhra</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-shell outcomes-section" aria-labelledby="outcomes-title">
+    <div class="section-heading">
+        <p class="section-kicker">Expected Outcomes</p>
+        <h2 id="outcomes-title">Participants leave with clarity, networks, and a deeper commitment to service.</h2>
+    </div>
+    <div class="outcome-list">
+        {% for outcome in outcomes %}
+            <p><span>{{ forloop.counter }}</span>{{ outcome }}</p>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="final-cta">
+    <div class="section-shell final-cta-inner">
+        <div>
+            <p class="section-kicker">Be The Change. Lead The Future.</p>
+            <h2>Build Viksit Bharat @2047.</h2>
+            <p>Seats are managed through the official registration form.</p>
+        </div>
+        <a class="button primary" href="{% url 'dialogue:register' %}" target="_blank" rel="noopener">Open Registration Form</a>
+    </div>
+</section>
+{% endblock %}
