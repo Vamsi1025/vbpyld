@@ -10,5 +10,4 @@ urlpatterns = [
     path("register/", views.register, name="register"),
     path("payment/", views.payment, name="payment"),
     path("success/", views.success, name="success"),
-    path("create-admin/", views.create_admin),
 ]
