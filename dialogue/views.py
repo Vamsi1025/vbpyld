@@ -216,8 +216,8 @@ def payment(request):
         request,
         "dialogue/payment.html",
         {
-            "amount": 199,
-            "upi_id": "vbyp@ibl",
+            "amount": 200,
+            "upi_id": "kishanreddy16-2@oksbi",
         },
     )
 
