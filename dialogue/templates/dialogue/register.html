@@ -107,7 +107,7 @@
 
             </div>
 
-            <div class="form-section">
+            <!--<div class="form-section">
 
                 <h2>Identity</h2>
 
@@ -120,17 +120,37 @@
 
                 </div>
 
+            </div>-->
+
+            <div class="form-section">
+
+                <h2>Age</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group full-width">
+                        <label>Age *</label>
+                        {{ form.age }}
+                    </div>
+
+                </div>
+
             </div>
 
             <div class="form-section">
 
-                <h2>Educational Qualification</h2>
+                <h2>Educational & Professional Details</h2>
 
                 <div class="form-grid">
 
                     <div class="form-group full-width">
                         <label>Qualification *</label>
                         {{ form.educational_qualification }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Profession *</label>
+                        {{ form.profession }}
                     </div>
 
                 </div>
